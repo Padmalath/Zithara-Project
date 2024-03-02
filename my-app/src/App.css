@@ -1,6 +1,6 @@
 .App {
   text-align: center;
- margin-bottom: 30px;
+  margin-bottom: 30px;
   font-size: 10px;
 }
 
@@ -39,21 +39,9 @@
   }
 }
 
-.zithara{
-  transform: scaleX(1.5) scaleY(0.5);
-
-  position: relative;
-  bottom: 30px;
-  font-family: "Nabla", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "EDPT" 100,
-    "EHLT" 12;
-}
 .searchbar{
- 
+  padding-top: 20px;
+  margin-top: 20px;
   position: relative;
   bottom: 25px;
 }
@@ -61,10 +49,10 @@
   text-align: center;
 }
 .table{
-  font-size: 14px;
+  font-size: 12px;
 }
 .pagination{
-  float: right;
+  float: left;
   
 }
 .back{
@@ -72,4 +60,7 @@
   margin-left: 150px;
   position: relative;
   top: 20px;
+}
+.bg{
+  background-color: white;
 }

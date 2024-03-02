@@ -38,7 +38,6 @@ function Tableview({ customers }) {
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = sortData().slice(indexOfFirstRecord, indexOfLastRecord);
  
-
   // Function to handle page change
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -50,49 +49,49 @@ function Tableview({ customers }) {
 
   return (
     <div className="container">
-        <div className="row justify-content-center">
-    <div className="col-lg-10">
-      <h2 className="table_Heading">Customer List</h2>
-      <table className="table table-success table-striped table-hover ">
-        <thead>
-          <tr>
-            <th>sno</th>
-            <th>Customer Name</th>
-            <th>Age</th>
-            <th>Phone</th>
-            <th>Location</th>
-            <th onClick={toggleSortOrder} style={{ cursor: "pointer" }}>Date {sortOrder === "asc" ? "▲" : "▼"}</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentRecords.map((customer, index) => (
-            <tr key={index}>
-              <td>{customer.sno}</td>
-              <td>{customer.customer_name}</td>
-              <td>{customer.age}</td>
-              <td>{customer.phone}</td>
-              <td>{customer.location}</td>
-              <td>{extractDate(customer.created_at)}</td>
-              <td>{extractTime(customer.created_at)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* Pagination */}
-      {totalPages > 1 &&
-        <nav aria-label="...">
-          <ul className="pagination pagination-xs">
-            {Array.from({ length: totalPages }, (_, i) => (
-              <li key={i} className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}>
-                <button className="page-link" onClick={() => paginate(i + 1)}>{i + 1}</button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      }
-    </div>
-    </div>
+      <div className="row justify-content-center">
+        <div className="col-lg-10">
+          <h2 className="table_Heading">Customer List</h2>
+          <table className="table table-success table-striped table-hover ">
+            <thead>
+              <tr className="bg">
+                <th>sno</th>
+                <th>Customer Name</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Location</th>
+                <th onClick={toggleSortOrder} style={{ cursor: "pointer" }}>Date {sortOrder === "asc" ? "▲" : "▼"}</th>
+                <th onClick={toggleSortOrder} style={{ cursor: "pointer" }}>Time {sortOrder === "asc" ? "▲" : "▼"}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentRecords.map((customer, index) => (
+                <tr key={index}>
+                  <td>{indexOfFirstRecord + index + 1}</td>
+                  <td>{customer.customer_name}</td>
+                  <td>{customer.age}</td>
+                  <td>{customer.phone}</td>
+                  <td>{customer.location}</td>
+                  <td>{extractDate(customer.created_at)}</td>
+                  <td>{extractTime(customer.created_at)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* Pagination */}
+          {totalPages > 1 &&
+            <nav aria-label="...">
+              <ul className="pagination pagination-xs">
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <li key={i} className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}>
+                    <button className="page-link" onClick={() => paginate(i + 1)}>{i + 1}</button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          }
+        </div>
+      </div>
     </div>
   );
 }

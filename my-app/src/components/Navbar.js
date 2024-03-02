@@ -7,7 +7,6 @@ import "../App.css";
 
 
 
-
 function Navbar() {
     const [search, setSearch] = useState('');
     const [customer, setCustomer] = useState(null);
@@ -44,9 +43,8 @@ function Navbar() {
     return (
         <div>
             <div>
-                <nav className="navbar navbar-light bg-dark " style={{ height: '70px' }}>
+                <nav className="navbar navbar-light " style={{ height: '70px' }}>
                     <div className="container">
-                        <div className="navbar-brand zithara" style={{ color: 'whitesmoke', fontSize:'60px'}}>ZITHARA</div>
                         <form className="d-flex searchbar" onSubmit={handleSubmit}>
                             <input className="form-control me-2" value={search}type="search" placeholder="Search" aria-label="Search" onChange={handleSearch} />
                             <button className="btn btn-success" type="submit">Search</button>
